@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+    {# <style>
+        p {
+            color: {{color}}
+        }
+    </style> #}
+</head>
+<body>
+    <p style="color : {{color}}"> hello list! </p> 
+    {{ zoo | length }}
+
+    {% for one_animal in zoo : %}
+        <li>there are {{one_animal.population}} {{one_animal["creature"]}} in my zoo</li>
+    {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- linking a css style sheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    {# this is a comment!!! #}
+    <p>times is {{times}}</p>
+
+    <!-- linking an image -->
+    <img src="{{ url_for('static', filename='assets/duck.jpg') }}" width="100">
+
+    <hr>
+    {# 1-5? #}
+    {% for x in range(1, times+1) :%}
+    {# Every time I land on a number
+    That is evenly divisible by 5
+    I want To show balloons #}
+
+        {% if x % 5 == 0 :%}
+            <p>🎈🎈🎈🎈🎈🎈</p>
+        {% else: %}
+            <h5> {{x}} hello {{name}}</h5>
+        {% endif %}
+
+    {% endfor %}
+
+    <!-- linking a javascript file -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
