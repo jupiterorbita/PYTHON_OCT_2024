@@ -1,0 +1,11 @@
+ERD
+T - create table
+1 - 1:1 non-identifying relationship
+2 - 1:N ---- non identifying relationship
+3 - 1:1 identifying relation
+4 - 1:N ----- identifying relationship
+5 - N:M - identifying relationship
+6 - pick a relationship using existing columns
+D - delete object
+L - layer
+N - new object (text?)
