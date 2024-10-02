@@ -7,11 +7,21 @@
 </head>
 <body>
     <h2>All da Doggos 🐶🐶🐶</h2>
-    {{ all_dogs }}
+    <!-- {{ all_dogs }} -->
     <hr>
+    <a href="/dogs/create_page"> add a dog! </a>
 
     {% for one_dog in all_dogs :%}
-        <li>{{one_dog.name}} is a {{one_dog.color}} {{one_dog.breed}} and they are {{one_dog.age}} years old</li>
+        <li>
+            <a href="/dogs/{{one_dog.id}}" >
+
+                {{one_dog.name}} 
+            </a>
+            
+            is a {{one_dog.color}} {{one_dog.breed}} and they are {{one_dog.age}} years old
+        - 
+        <a href="/dogs/{{one_dog.id}}/update">EDIT</a>
+        </li>
     {% endfor %}
     
 </body>
