@@ -10,5 +10,13 @@
     <h2>this dog 🐕‍🦺</h2>
     say hello to {{this_dog.name}}! <br>
     They are a {{this_dog.color}} {{this_dog.breed}}
+
+    <p>
+        <!-- list of awards: {{this_dog.list_of_awards}} -->
+    </p>
+
+    {% for one_award in this_dog.list_of_awards: %}
+        <li>{{one_award.title}}</li>
+    {% endfor %}
 </body>
 </html>

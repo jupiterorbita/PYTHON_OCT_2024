@@ -44,7 +44,13 @@ SET
 	breed = "test breed",
 	color = "test color"
 WHERE id = 4;
-        
+
+-- JOINS -------
+-- get a dogs' awards
+SELECT * FROM dogs
+LEFT JOIN awards 
+ON dogs.id = awards.dog_id 
+WHERE dogs.id = 3;
 
 
 

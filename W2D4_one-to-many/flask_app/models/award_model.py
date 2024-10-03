@@ -4,6 +4,7 @@
 
 from flask_app import DATABASE
 from flask_app.config.mysqlconnection import connect_to_mysql
+from flask_app.models import dog_model
 
 class Award:
     def __init__(self, data):

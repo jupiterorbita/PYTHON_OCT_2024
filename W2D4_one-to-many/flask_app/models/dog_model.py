@@ -3,6 +3,7 @@
 # C R U D
 from flask_app import DATABASE
 from flask_app.config.mysqlconnection import connect_to_mysql
+from flask_app.models import award_model
 
 # create the model for the dog that references the dog table
 class Dog:
@@ -14,6 +15,7 @@ class Dog:
         self.color = data['color']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        # self.list_of_awards = []
     
     # === ALL QUERIES ARE classmethods ===
     
@@ -49,15 +51,40 @@ class Dog:
         data = {
             'id' : id
         }
+        # query = """
+        #     SELECT * FROM dogs
+        #     WHERE id = %(id)s;
+        # """
+
         query = """
             SELECT * FROM dogs
-            WHERE id = %(id)s;
+            LEFT JOIN awards 
+            ON dogs.id = awards.dog_id 
+            WHERE dogs.id = %(id)s;
         """
         result = connect_to_mysql(DATABASE).query_db(query, data)
         print("########## get_one -->> result:", result) # [ {dict} ]
 
-        this_one_dog_instance = cls(result[0])
+        this_one_dog_instance = cls(result[0]) # this creates the Dog instance
+
+        # now add the list of awards this one dog has
+        these_awards = []
+        for row in result:
+            # format the data for the Award constructor
+            award_data = {
+                'id' : row['awards.id'],
+                'created_at' : row['awards.created_at'],
+                'updated_at' : row['awards.updated_at'],
+                'title' : row['title'],
+                'dog_id' : row['dog_id']
+            }
+            this_award = award_model.Award(award_data) # creates an Award instance
+            these_awards.append(this_award)
+
+        # create a new attribute ofr the Dog instance
+        this_one_dog_instance.list_of_awards = these_awards
         return this_one_dog_instance # {Dog Object / instance}
+    
     
 
     # ---- UPDATE -----
