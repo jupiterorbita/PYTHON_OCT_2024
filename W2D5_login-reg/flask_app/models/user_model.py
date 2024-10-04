@@ -43,6 +43,23 @@ class User:
         return User(results[0])
 
 
+    # ==== GET ONE by id ==========
+    @classmethod
+    def get_by_id(cls, id):
+        data = {
+            'id' : id
+        }
+        query = """
+            SELECT * FROM users
+            WHERE id = %(id)s;
+        """
+        results = connect_to_mysql(DATABASE).query_db(query, data)
+        print("\n ??????????? DID WE GET A USER BACK ???", results)
+        if len(results) < 1:
+            return False
+        return User(results[0])
+
+
 
 
     # ======== VALIDATIONS =======
@@ -52,30 +69,30 @@ class User:
 
         if len(data['first_name']) < 1:
             is_valid = False
-            flash("first_name is required")
+            flash("first_name is required", 'reg')
         
         if len(data['last_name']) < 1:
             is_valid = False
-            flash("last_name is required")
+            flash("last_name is required", 'reg')
 
         if len(data['email']) < 1:
             is_valid = False
-            flash("email is required")
+            flash("email is required", 'reg')
         elif not EMAIL_REGEX.match(data['email']): 
             is_valid = False
-            flash("Invalid email address!")
+            flash("Invalid email address!", 'reg')
         # check if the user exists already in the DB
         else:
             potential_user = User.get_by_email(data['email'])
             if potential_user:
                 is_valid = False
-                flash("email is taken... hopefully by you!")
+                flash("email is taken... hopefully by you!", 'reg')
 
         if len(data['password']) < 1:
             is_valid = False
-            flash("password is required")
+            flash("password is required", 'reg')
         elif not data['password'] == data['confirm_password']:
             is_valid = False
-            flash("passwords must match!")
+            flash("passwords must match!", 'reg')
         
         return is_valid

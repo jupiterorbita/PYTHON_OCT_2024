@@ -1,6 +1,6 @@
 # ROUTING
 from flask_app import app
-from flask import render_template, redirect, request, session
+from flask import render_template, redirect, request, session, flash
 from flask_app.models.user_model import User
 from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app)  
@@ -38,6 +38,40 @@ def user_reg():
     session['user_id'] = user_id
     return redirect("/dashboard")
 
+
+# ===== LOGIN METHOD (form action) ====
+@app.route("/users/login", methods=['post'])
+def login():
+    print("\n!!!!!!!!!!!!!! -- request.form", request.form)
+    # 1. get the user by email
+    user_in_db = User.get_by_email(request.form['email'])
+    # if email is not found
+    if not user_in_db:
+        flash("invalid credentials", 'login')
+        return redirect("/")
+
+    # now we check the password
+    if not bcrypt.check_password_hash(user_in_db.password, request.form['password']):
+        # if we get False after checking the password
+        flash("invalid credentials", 'login')
+        return redirect('/')
+    
+    # if all is good, login the user
+    session['user_id'] = user_in_db.id
+    return redirect("/dashboard")
+
+
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    # route guard
+    if 'user_id' not in session:
+        return redirect("/")
+
+    logged_user = User.get_by_id(session['user_id'])
+    return render_template("dashboard.html", 
+                           logged_user = logged_user)
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
