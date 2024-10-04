@@ -1,6 +1,6 @@
 # ROUTING
 from flask_app import app
-from flask import render_template, redirect, request, session, flash
+from flask import render_template, redirect, request, session
 from flask_app.models.user_model import User
 from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app)  
@@ -17,7 +17,7 @@ def user_reg():
 
     # BEFORE we write the the BS
     # WE need to V A L I D A T E   the form
-    print(User.validate(request.form))
+    # print(User.validate(request.form)) # Remove so it doesn't show duplicate errors 
     if not User.validate(request.form):
         return redirect("/")
 
