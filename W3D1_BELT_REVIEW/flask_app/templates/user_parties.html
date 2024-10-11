@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User parties</title>
+</head>
+<body>
+    <a href="/dashboard">back</a>
+    <!-- {{this_user}} -->
+    <h2>hello {{this_user.fist_name}}, here are all your parties</h2>
+    
+    {{this_user.created_parties}}
+
+    <hr>
+
+    {% for one_party in this_user.created_parties : %}
+        <li>{{one_party.what}} at {{one_party.location}} on {{one_party.date}}</li>
+    {% endfor %}
+</body>
+</html>

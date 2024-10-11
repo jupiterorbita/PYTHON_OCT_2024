@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login - reg page</title>
+</head>
+<body>
+    <h2>Hello and welcome to our site</h2>
+
+   
+
+    <!-- ===== REGISTER ===== -->
+     <h3>Register</h3>
+
+      <!-- === display errors from register form === -->
+    {% for message in get_flashed_messages(category_filter=['reg']) %}            
+        <p style="color: red">{{message}}</p>                   
+    {% endfor %}
+
+     <form action="/users/register" method="post">
+        <div>
+            first_name:
+            <input name="first_name">
+        </div>
+        <div>
+            last_name:
+            <input name="last_name">
+        </div>
+        <div>
+            email:
+            <input name="email">
+        </div>
+        <div>
+            password:
+            <input name="password">
+        </div>
+        <div>
+            confirm_password:
+            <input name="confirm_password">
+        </div>
+
+        <input type="submit" value="register">
+     </form>
+
+     <!-- ===== LOGIN form ==== -->
+     <h2>LOGIN</h2>
+     {% for message in get_flashed_messages(category_filter=['login']) %}            
+        <p style="color: red">{{message}}</p>                   
+     {% endfor %}
+
+     <form action="/users/login" method="post">
+        <div></div>
+            email:
+            <input name="email" type="email">
+        </div>
+        <div>
+            password:
+            <input name="password" type="password">
+        </div>
+
+        <input type="submit" value="register">
+     </form>
+</body>
+</html>

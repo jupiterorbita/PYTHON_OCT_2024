@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create a party</title>
+</head>
+<body>
+    <a href="/dashboard">back</a>
+
+    <h2>create a party 🥳🥳</h2>
+    SESSION ID (`user_id`): {{session.user_id}}
+
+    <div>
+        {% for message in get_flashed_messages() %} <!-- loop through the messages -->
+            <p style="color: red">{{message}}</p> <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    </div>
+
+    <form action="/parties/create" method="post">
+
+        <input type="hidden" name="user_id" value="{{session.user_id}}">
+
+        <div>
+            what:
+            <input name="what">
+        </div>
+        <div>
+            where:
+            <input name="location">
+        </div>
+        <div>
+            date:
+            <input name="date" type="date">
+        </div>
+        <div>
+            all_ages: <br>
+            True <input type="radio" name="all_ages" value="1">
+            False <input type="radio" name="all_ages" value="0">
+        </div>
+        <div>
+            description:
+            <textarea name="description"></textarea>
+        </div>
+
+        <input type="submit" value="add Party!">
+    </form>
+</body>
+</html>
