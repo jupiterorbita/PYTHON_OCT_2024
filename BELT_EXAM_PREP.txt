@@ -1,0 +1,138 @@
+⭐EXAM GUIDE - NOTES - EXPECTATIONS - RULES⭐
+
+Today: 2 weeks and 2 days!
+
+Exam is open book, platform / - not open GitHub! 👀⚠
+you may only use our class GitHub and yours
+
+👉 Must have 15/16 (>90%) VALID core assignments turned in to take the exam.
+RECIPES assignmetn is the best belt prep ⭐⭐⭐
+** we are not speed-running a bootcamp! **
+It's a marathon not a sprint!
+-- CODE REVIEW "RECIPES" 
+
+learn.codingdojo.com/exams
+
+EXAM is emulating a take home challenge
+The exam is written as a real life example of a potential employer giving you a timed exercise to test your knowledge
+
+1. take 100% of the exam time! (4.5 hours + 30 mins)
+DO NOT DROP EARLY - take breaks
+👉 Ask Clarification questions
+
+2. Don't panic!
+- the only risk here is for you to find and expose a weakness to study and correct! 🙂
+- receive feedback
+
+3. Don't watch the clock ⏳
+- set alarms for mid way - last hour and last 20 mins
+
+4. Start with what you know
+- Red belt vs Black belt
+
+5. Don't start the exam until you have your environment setup and ready
+- 📂 flask_app
+	📂controllers
+	    users_controller.py
+	📂models
+	    user_model.py
+	📂config
+	    mysqlconnection.py
+	📂templates
+	    index.html
+	    dashboard.html
+	📝__init__.py
+📝server.py.. etc.
+
+- 💻 Users table
+- Login / Registration
+$ pipenv install flask pymysql flask-bcrypt
+(boiler plate)
+
+6. Use exam instructions as checklist and follow the yellow sticky notes
+- double check before submitting***
+- don't overthink features - do only what the exam asks
+
+7. Use the platform - 100% of the RED BELT features are IN the platform.
+
+8. always include your *.mwb (SQL MODEL file)
+  I cannot grade the exam without it - VOID if not included
+
+9. Don't go over time, submit anyway I will still code review it with you.
+- ALWAYS submit what you have
+- not submitting is automatic FAIL
+
+10. Even if you are feeling nervous - Take the exam anyway as an assignment and finish it
+
+11. You don't have to submit a video*
+
+12. STAY IN ZOOM THROUGHOUT THE ENTIRE TIME OF THE EXAM 
+- DON'T EXIT ZOOM 
+- DON'T JOIN ANOTHER DISCORD SERVER 
+-> VOID THE EXAM
+
+13. DO NOT ENTER a TA HELP CHANNEL
+-> VOID THE EXAM
+
+14. Join lecture room so I can assign you to an exam room
+WED - 9:00 - start by 10:00a MT
+THUR - 10:00 - start by 11:00a MT
+
+
+15. Don't cheat. PERIOD
+- it's very easy to catch cheaters
+- code is like a fingerprint
+- you need to feel comfortable about what you do and do not know to survive an engineering role
+    AVAILABLE RESOURCES
+    - Learn Platform
+    - ONLY Our class Github + YOUR Git repo
+    - Your code, your notes
+    - Official documentation
+    - Stack Overflow / Google
+if we, later, find that you plagiarized an exam we will void your certificate retroactively and remove you from discord and Career Services and platform access.
+
+16. ASKING FOR HELP
+ - this is an EXAM ¯\_(ツ)_/¯
+	-> what route is it not working on?
+	-> what method/class is it in?
+	-> what response is/not coming back?
+ - if you are stuck on a bug for > 20 mins I may or may not POINT you to a direction
+ - Ping in our main class DISCORD COHORT CHANNEL.
+ in discord: 
+ 	@dojo_John_Misirlakis @dojo_david_moore Exam room # - for grading - clarification question
+ DO NOT DM OR RAISE HAND/reaction ON ZOOM
+ 👉 screen share BEFORE asking for help - to speed up the process!
+
+17. GETTING GRADED
+ - double and triple check that you met ALL REQUIREMENTS.
+ - test all routes / features
+ - Ping in our class DISCORD COHORT CHANNEL
+ 
+18. After finishing an exam:
+-> take a break! you did it 🎈
+-> read PROJECT STACK
+-> Friday Planning Meeting -> wireframes/user stories demo
+
+-= REQUIREMENTS =- 
+
+RED-BELT
+	Login/Registration
+	1:M JOINS
+	full CRUD functionality
+	different input types: (all in the platform)
+	👉 DISPLAY ERROR MESSAGES
+	must use class instances
+	Flask + bcrypt
+	everything we taught you / not other frameworks
+
+BLACK BELT
+	¯\_(ツ)_/¯
+	1:M + M:N
+	- deploy within 24 hours on AWS, after finishing an exam
+	- screen shot your aws instance running on EC2
+	must be AWS EC2 instance / NOT AWS ElasticBeanstalk / or other hosting
+
+you're aweome
+      &
+you got this!
+    💪😎
